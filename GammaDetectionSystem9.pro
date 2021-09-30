@@ -12,6 +12,7 @@ SOURCES += \
     command.cpp \
     connectplc.cpp \
     controller.cpp \
+    detectionsetting.cpp \
     detector.cpp \
     log.cpp \
     main.cpp \
@@ -19,22 +20,28 @@ SOURCES += \
     manager.cpp \
     setting.cpp \
     snap7.cpp \
-    utilities.cpp
+    tinyxml2.cpp \
+    utilities.cpp \
+    xmlparser.cpp
 
 HEADERS += \
     command.h \
     connectplc.h \
     controller.h \
+    detectionsetting.h \
     detector.h \
     log.h \
     mainwindow.h \
     manager.h \
     setting.h \
     snap7.h \
-    utilities.h
+    tinyxml2.h \
+    utilities.h \
+    xmlparser.h
 
 FORMS += \
     connectplc.ui \
+    detectionsetting.ui \
     mainwindow.ui
 
 # Default rules for deployment.
