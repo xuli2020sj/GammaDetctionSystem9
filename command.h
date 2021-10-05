@@ -4,26 +4,27 @@
 #include "snap7.h"
 
 
-class abstractCommand
+class Command
 {
 public:
     virtual bool execute() = 0;
 protected:
     byte buffer;
-    Controller controller;
+    Controller* controller;
 
 };
 
-class startCommand : public abstractCommand
+class startCommand : public Command
 {
 public:
     bool execute() {
-        auto controller = new Controller("192.168.13.162", 0, 1);
+        Controller *controller = Controller::controller();
+        buffer = 22;
         return controller->writeVal(0x84, 1, 0, 3, 0x02, &buffer);
     }
 };
 
-class stopCommand : public abstractCommand
+class stopCommand : public Command
 {
 public:
     bool execute() {
@@ -32,7 +33,7 @@ public:
     }
 };
 
-class restartCommand : public abstractCommand
+class restartCommand : public Command
 {
 public:
     bool execute() {

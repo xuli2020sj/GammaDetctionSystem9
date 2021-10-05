@@ -2,5 +2,5 @@
 
 Log::Log()
 {
-
+    qDebug() << QSqlDatabase::drivers();
 }

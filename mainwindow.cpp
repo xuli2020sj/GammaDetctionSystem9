@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    controller = new Controller("192.168.13.162", 0, 1);
+    //单例模式（饿汉模式） 创建controller实例
+    Controller *controller = Controller::controller();
 
     PLCStatusLED = new QLabel;
     DetectorStatusLED = new QLabel;
@@ -26,6 +28,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     detLabel->setText("HPGe探测器");
     statusBar()->addWidget(detLabel);
+
+    //create syn thread
+    auto readThread = new QThread();
+    auto manager = new Manager();
+    manager->moveToThread(readThread);
+
+    connect(readThread, &QThread::finished, readThread, &QObject::deleteLater);
+    connect(readThread, &QThread::finished, manager, &QObject::deleteLater);
+    connect(this, &MainWindow::startReadStatus, manager, &Manager::readStatus);
+
+    readThread->start();
 }
 
 MainWindow::~MainWindow()
@@ -42,20 +55,23 @@ void MainWindow::on_actionConnect_PLC_triggered()
 
 void MainWindow::subWinEventConnectPLC(QString ip)
 {
-    qDebug() << ip;
+    Controller *controller = Controller::controller();
     controller->setAddress(ip);
     controller->connectPLC();
     Utilities::setLED(PLCStatusLED , 2, 8);
+    subWinconnectPLC.close();
 }
 
 void MainWindow::subWinEventDisconnectPLC()
 {
+    Controller *controller = Controller::controller();
     controller->disconnectPLC();
     Utilities::setLED(PLCStatusLED , 1, 8);
 }
 
 void MainWindow::on_readButton_released()
 {
+    Controller *controller = Controller::controller();
     byte RBuffer[3] = {};
     controller->readVal(0x84, 1, 0, 3, 0x02, &RBuffer);
     ui->devLog->append("Read length: " + ui->typeCombo1->currentText());
@@ -67,6 +83,7 @@ void MainWindow::on_readButton_released()
 
 void MainWindow::on_writeButton_released()
 {
+    Controller *controller = Controller::controller();
     int addr1, index;
     unsigned int num1;
     QString Qindex;
@@ -91,6 +108,7 @@ void MainWindow::on_writeButton_released()
 
 void MainWindow::on_readAllButton_released()
 {
+    Controller *controller = Controller::controller();
     byte RBuffer[60] = {};
     for (int index = 0; index < 60 ; index++) {
         controller->readVal(0x84, 1, index, 3, 0x02, &RBuffer[index]);
@@ -99,5 +117,74 @@ void MainWindow::on_readAllButton_released()
         ui->dataTable->setItem(index, 1, new QTableWidgetItem(QString::number(RBuffer[index],16)));
         ui->dataTable->setItem(index, 2, new QTableWidgetItem(QString("%1").arg(QString::number(RBuffer[index],10).toUInt(), 8, 2, QLatin1Char('0'))));
     }
+}
+
+
+void MainWindow::on_upButton_released()
+{
+    Command *sc = new startCommand();
+    sc->execute();
+}
+
+
+void MainWindow::on_leftButton_released()
+{
+
+}
+
+
+void MainWindow::on_rightBtn_released()
+{
+
+}
+
+
+void MainWindow::on_downButton_released()
+{
+
+}
+
+
+void MainWindow::on_stopButton_released()
+{
+
+}
+
+
+void MainWindow::on_forwardButton_released()
+{
+
+}
+
+
+void MainWindow::on_backwardButton_released()
+{
+
+}
+
+
+void MainWindow::on_resetButton_released()
+{
+
+}
+
+
+void MainWindow::on_startAutoButton_released()
+{
+    Controller *controller = Controller::controller();
+    controller->start();
+}
+
+
+void MainWindow::on_stopAutoButton_released()
+{
+    Controller *controller = Controller::controller();
+    controller->terminate();
+}
+
+
+void MainWindow::on_synButton_released()
+{
+    emit startReadStatus();
 }
 

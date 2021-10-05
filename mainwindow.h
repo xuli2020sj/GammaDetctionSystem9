@@ -5,8 +5,13 @@
 #include <QObject>
 #include "connectplc.h"
 #include "controller.h"
+#include "command.h"
 #include "QLabel"
 #include "utilities.h"
+#include "manager.h"
+#include <QObject>
+#include <QMutex>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,9 +37,37 @@ private slots:
 
     void on_readAllButton_released();
 
+    void on_upButton_released();
+
+    void on_leftButton_released();
+
+    void on_rightBtn_released();
+
+    void on_downButton_released();
+
+    void on_stopButton_released();
+
+    void on_forwardButton_released();
+
+    void on_backwardButton_released();
+
+    void on_resetButton_released();
+
+
+
+    void on_startAutoButton_released();
+
+    void on_stopAutoButton_released();
+
+    void on_synButton_released();
+
+signals:
+    void startReadStatus();
+
 private:
     Ui::MainWindow *ui;
     connectPLC subWinconnectPLC;
+    QThread m_readThread;
 
     //Status Bar
     QLabel *PLCStatusLED;
