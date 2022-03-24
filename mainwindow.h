@@ -11,6 +11,10 @@
 #include "manager.h"
 #include <QObject>
 #include <QMutex>
+#include <QtEndian>
+#include "autocontrol.h"
+
+#include "xmlparser.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +29,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     Controller *controller;
+
+
 
 private slots:
     void on_actionConnect_PLC_triggered();
@@ -61,8 +67,41 @@ private slots:
 
     void on_synButton_released();
 
+    void on_startManualButton_released();
+
+    void on_upButton_pressed();
+
+
+    void on_leftButton_pressed();
+
+    void on_backwardButton_pressed();
+
+    void on_downButton_pressed();
+
+    void on_forwardButton_pressed();
+
+    void on_rightBtn_pressed();
+
+
+
+    void on_returnZero_released();
+
+    void on_manualRadioButton_clicked(bool checked);
+
+    void on_autoRadioButton_clicked(bool checked);
+
+    void on_pauseAutoButton_released();
+
+
+    void on_generateCmdAction_triggered();
+
 signals:
     void startReadStatus();
+    void startAutoControl();
+
+public slots:
+    void synState();
+    void progressBar(int progress);
 
 private:
     Ui::MainWindow *ui;
@@ -74,6 +113,10 @@ private:
     QLabel *PLCLabel;
     QLabel *DetectorStatusLED;
     QLabel *detLabel;
+
+    QThread *autoThread;
+
+    longword processReal(QString lineEdit);
 
 
 };

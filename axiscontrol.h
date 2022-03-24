@@ -30,41 +30,101 @@ public:
     bool getStartRelativeMoation() const;
     void setStartRelativeMoation(bool newStartRelativeMoation);
 
-    longword getCurrentSpeed() const;
-    void setCurrentSpeed(longword newCurrentSpeed);
+    float getCurrentSpeed() const;
+    void setCurrentSpeed(float newCurrentSpeed);
 
-    longword getCurrentPosition() const;
-    void setCurrentPosition(longword newCurrentPosition);
+    float getCurrentPosition() const;
+    void setCurrentPosition(float newCurrentPosition);
 
-    longword getTargetSpeed() const;
-    void setTargetSpeed(longword newTargetSpeed);
+    float getTargetSpeed() const;
+    void setTargetSpeed(float newTargetSpeed);
 
-    longword getTargetAbsoltePosition() const;
-    void setTargetAbsoltePosition(longword newTargetAbsoltePosition);
+    float getTargetAbsoltePosition() const;
+    void setTargetAbsoltePosition(float newTargetAbsoltePosition);
 
-    longword getTargetRelativePosition() const;
-    void setTargetRelativePosition(longword newTargetRelativePosition);
+    float getTargetRelativePosition() const;
+    void setTargetRelativePosition(float newTargetRelativePosition);
+
+    void setIsReady(bool newIsReady);
+
+    void setIsZero(bool newIsZero);
+
+    void setIsCompleted(bool newIsCompleted);
+
+    bool getStop() const;
+
+    bool getUpLimit() const;
+    void setUpLimit(bool newUpLimit);
+
+    bool getDownLimit() const;
+    void setDownLimit(bool newDownLimit);
+
+    bool getIsAbsoluteMoationManual() const;
+    void setIsAbsoluteMoationManual(bool newIsAbsoluteMoationManual);
+
+    bool getIsRelativeMoationManual() const;
+    void setIsRelativeMoationManual(bool newIsRelativeMoationManual);
+
+    bool getIsAbsoluteMoationAuto() const;
+    void setIsAbsoluteMoationAuto(bool newIsAbsoluteMoationAuto);
+
+    bool getIsRelativeMoationAuto() const;
+    void setIsRelativeMoationAuto(bool newIsRelativeMoationAuto);
+
+    bool getIsJogPlus() const;
+    void setIsJogPlus(bool newIsJogPlus);
+
+    bool getIsJogNegative() const;
+    void setIsJogNegative(bool newIsJogNegative);
 
 protected:
     bool isAlert;
     bool isReady;
     bool isZero;
     bool isCompleted;
+
+    bool isAbsoluteMoationManual;
+    bool isRelativeMoationManual;
+    bool isAbsoluteMoationAuto;
+    bool isRelativeMoationAuto;
+    bool isJogPlus;
+    bool isJogNegative;
+
     bool init;
     bool stop;
+    bool upLimit;
+    bool downLimit;
     bool startAbsoluteMoation;
     bool startRelativeMoation;
-    longword currentSpeed;
-    longword currentPosition;
-    longword targetSpeed;
-    longword targetAbsoltePosition;
-    longword targetRelativePosition;
+    float currentSpeed;
+    float currentPosition;
+    float targetSpeed;
+    float targetAbsoltePosition;
+    float targetRelativePosition;
+
 };
 
 class xAxis : public abstractAxisControl
 {
 public:
     xAxis();
+    bool getStopAllAxis() const;
+    void setStopAllAxis(bool newStopAllAxis);
+
+    bool getLocalOrRemote() const;
+    void setLocalOrRemote(bool newLocalOrRemote);
+
+    bool getLocalOrRemoteState() const;
+    void setLocalOrRemoteState(bool newLocalOrRemoteState);
+
+    bool getResetAllAxis() const;
+    void setResetAllAxis(bool newResetAllAxis);
+
+private:
+    bool stopAllAxis;
+    bool localOrRemote;
+    bool localOrRemoteState;
+    bool resetAllAxis;
 };
 
 class yAxis : public abstractAxisControl

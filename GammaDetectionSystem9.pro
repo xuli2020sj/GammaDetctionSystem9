@@ -11,6 +11,7 @@ CONFIG += c++11
 QT += sql
 
 SOURCES += \
+    autocontrol.cpp \
     axiscontrol.cpp \
     command.cpp \
     connectplc.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
     xmlparser.cpp
 
 HEADERS += \
+    autocontrol.h \
     axiscontrol.h \
     command.h \
     connectplc.h \
@@ -58,3 +60,10 @@ win32: LIBS += -L$$PWD/snap7/ -lsnap7
 
 INCLUDEPATH += $$PWD/snap7
 DEPENDPATH += $$PWD/snap7
+
+INCLUDEPATH += $$PWD/include
+
+OBJECTS_DIR  = tmp
+MOC_DIR      = tmp
+
+DISTFILES +=
