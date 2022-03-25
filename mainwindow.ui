@@ -86,7 +86,6 @@
         <property name="font">
          <font>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -98,7 +97,6 @@
         <property name="font">
          <font>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -108,8 +106,8 @@
      <widget class="QWidget" name="widget_2" native="true">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>10</y>
+        <x>300</x>
+        <y>20</y>
         <width>531</width>
         <height>551</height>
        </rect>
@@ -170,7 +168,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="pauseAutoButton">
        <property name="geometry">
         <rect>
          <x>300</x>
@@ -183,7 +181,7 @@
         <string>暂停</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="stopAutoButton">
        <property name="geometry">
         <rect>
          <x>390</x>
@@ -196,7 +194,7 @@
         <string>停止</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="startAutoButton">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -207,6 +205,19 @@
        </property>
        <property name="text">
         <string>开始</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="returnZero">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>520</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>回零</string>
        </property>
       </widget>
      </widget>
@@ -220,62 +231,62 @@
        <rect>
         <x>40</x>
         <y>80</y>
-        <width>320</width>
+        <width>334</width>
         <height>151</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="stopButton">
          <property name="text">
           <string>STOP</string>
          </property>
         </widget>
        </item>
        <item row="1" column="2">
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="rightBtn">
          <property name="text">
           <string>RIGHT</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="downButton">
          <property name="text">
           <string>DOWN</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="upButton">
          <property name="text">
           <string>UP</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="leftButton">
          <property name="text">
           <string>LEFT</string>
          </property>
         </widget>
        </item>
        <item row="1" column="3">
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="backwardButton">
          <property name="text">
           <string>BACKWARD</string>
          </property>
         </widget>
        </item>
        <item row="2" column="3">
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="resetButton">
          <property name="text">
           <string>RESET</string>
          </property>
         </widget>
        </item>
        <item row="0" column="3">
-        <widget class="QPushButton" name="pushButton_8">
+        <widget class="QPushButton" name="forwardButton">
          <property name="text">
           <string>FORWARD</string>
          </property>
@@ -293,41 +304,38 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_6">
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string> Speed</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="speedSelect">
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>15</string>
+          </property>
+         </item>
+        </widget>
+       </item>
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="label_7">
          <property name="text">
           <string>设定目标点</string>
          </property>
         </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label_12">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>当前位置</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string> X Axis</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEdit_2"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="lineEdit_9"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_9">
@@ -336,15 +344,8 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="QComboBox" name="comboBox_3"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string> Speed</string>
-         </property>
-        </widget>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="targetYPosEdit"/>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_10">
@@ -353,21 +354,22 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="lineEdit_10"/>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="targetXPosEdit"/>
        </item>
-       <item row="2" column="2">
-        <widget class="QLineEdit" name="lineEdit_11"/>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string> X Axis</string>
+         </property>
+        </widget>
        </item>
-       <item row="3" column="2">
-        <widget class="QLineEdit" name="lineEdit_12"/>
-       </item>
-       <item row="4" column="2">
-        <widget class="QLineEdit" name="lineEdit_13"/>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="targetZPosEdit"/>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_14">
+     <widget class="QPushButton" name="startManualButton">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -392,6 +394,205 @@
       <property name="text">
        <string>停止</string>
       </property>
+     </widget>
+     <widget class="QTableWidget" name="stateTableWidget">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>511</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>isAlert</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>isReady</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>isZero</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>isCompleted</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>currentSpeed</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>currentPosition</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>targetSpeed</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>targetPosition</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>targetRelativePosition</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>init</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>stop</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>startAbsoluteMotion(Auto)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>startRelativeMotion(Auto)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>JOG+</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>JOG-</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>startAbsoluteMotion(Manual)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>startRelativeMotion(Manual)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>upLimit</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>downLimit</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>localOrRemote</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>stopAllAxis</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>resetAllAxis</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>localOrRemoteState</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>xAxis</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>yAxis</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>zAxis</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="synButton">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>550</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>同步</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="synCancelButton">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>550</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>160</width>
+        <height>58</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>模式</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="manualRadioButton">
+         <property name="text">
+          <string>Manual</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="autoRadioButton">
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -948,7 +1149,7 @@
      <x>0</x>
      <y>0</y>
      <width>904</width>
-     <height>23</height>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -990,11 +1191,20 @@
     </property>
     <addaction name="actionUser_Manual"/>
    </widget>
+   <widget class="QMenu" name="menu_6">
+    <property name="title">
+     <string>操作</string>
+    </property>
+    <addaction name="generateCmdAction"/>
+    <addaction name="action_2"/>
+    <addaction name="reconstructionAction"/>
+   </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
+   <addaction name="menu_6"/>
    <addaction name="menu_3"/>
-   <addaction name="menu_4"/>
    <addaction name="menu_5"/>
+   <addaction name="menu_4"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionConnect_PLC">
@@ -1060,6 +1270,21 @@
   <action name="actionConnect_SQL">
    <property name="text">
     <string>Connect SQL</string>
+   </property>
+  </action>
+  <action name="reconstructionAction">
+   <property name="text">
+    <string>重建</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>读取控制指令</string>
+   </property>
+  </action>
+  <action name="generateCmdAction">
+   <property name="text">
+    <string>生成控制指令</string>
    </property>
   </action>
  </widget>

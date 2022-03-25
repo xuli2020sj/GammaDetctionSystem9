@@ -8,7 +8,11 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+QT += sql
+
 SOURCES += \
+    autocontrol.cpp \
+    axiscontrol.cpp \
     command.cpp \
     connectplc.cpp \
     controller.cpp \
@@ -25,6 +29,8 @@ SOURCES += \
     xmlparser.cpp
 
 HEADERS += \
+    autocontrol.h \
+    axiscontrol.h \
     command.h \
     connectplc.h \
     controller.h \
@@ -54,3 +60,10 @@ win32: LIBS += -L$$PWD/snap7/ -lsnap7
 
 INCLUDEPATH += $$PWD/snap7
 DEPENDPATH += $$PWD/snap7
+
+INCLUDEPATH += $$PWD/include
+
+OBJECTS_DIR  = tmp
+MOC_DIR      = tmp
+
+DISTFILES +=
